@@ -1,12 +1,11 @@
 package org.example.entities;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -34,4 +33,18 @@ public class Product {
     private int reorderLevel;
 
     private int discontinued;
+
+
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
+    @ManyToMany
+    @JoinColumn(name = "order_id")
+    private List<Order> orders;
+
+    //toMany = list  - toOne = un seul élément
 }
