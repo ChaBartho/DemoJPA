@@ -10,27 +10,20 @@ import java.util.Set;
 
 @Entity
 @Table(name = "territories")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class Territory {
-
     @Id
     @Column(name = "territory_id")
     private String id;
 
     @Column(name = "territory_description")
-    private String desc;
-
+    private String territoryDescription;
 
     @ManyToOne
-    @JoinColumn(name = "territories")
-    private Region regId;
+    @JoinColumn(name = "region_id")
+    private Region region;
 
     @ManyToMany(mappedBy = "territories")
     private Set<Employee> employees = new LinkedHashSet<>();
-
-
 
 }

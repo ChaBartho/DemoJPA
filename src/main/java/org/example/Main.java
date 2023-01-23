@@ -17,13 +17,14 @@ public class Main {
 
         EntityManager em = emf.createEntityManager();
 
+
         //GET ONE
         Product product = em.find( Product.class, 33L);      //renvoie une entité qui est attachée
         System.out.println( product.getName() );
         System.out.println( product.getCategory().getCategoryName() );
         System.out.println( product.getSupplier().getContactName() );
 
-
+/*
         //GET ALL
         TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p", Product.class);
         List<Product> list = query.getResultList();
@@ -56,6 +57,7 @@ public class Main {
         em.remove( cat );
         em.getTransaction().commit();
 
+*/
 
 
 
