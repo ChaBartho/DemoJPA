@@ -15,14 +15,14 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer{
+public class Customer {
 
     @Id
     @Column(name = "customer_id")
-    private long id;
+    private String id;
 
     @Column(name = "company_name")
-    private String company;
+    private String companyName;
 
     @Column(name = "contact_name")
     private String contactName;
@@ -41,11 +41,9 @@ public class Customer{
 
     private String country;
 
-    private String phone;
-
     private String fax;
 
-
+    private String phone;
 
     @ManyToMany
     @JoinTable(
@@ -55,6 +53,7 @@ public class Customer{
     )
     private List<Demographics> types;
 
-    @OneToMany(mappedBy = "managedBy")
-    private Set<Order> orders = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "customer")
+    private Set<Order> orders;
+
 }

@@ -10,36 +10,53 @@ import java.util.List;
 import java.util.Set;
 @Entity
 @Table(name = "employees")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Employee {
     @Id
     @Column(name = "employee_id")
-    private long id;
+    private Short id;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "title_of_courtesy")
-    private String courtesy;
+    private String titleOfCourtesy;
+
     @Column(name = "birth_date")
     private LocalDate birthDate;
+
     @Column(name = "hire_date")
     private LocalDate hireDate;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "region")
     private String region;
+
     @Column(name = "postal_code")
     private String postalCode;
+
+    @Column(name = "country")
     private String country;
+
     @Column(name = "home_phone")
     private String homePhone;
+
+    @Column(name = "extension")
     private String extension;
-    private String note;
+
+    @Column(name = "notes")
+    private String notes;
+
     @ManyToOne
     @JoinColumn(name = "reports_to")
     private Employee reportsTo;
@@ -50,14 +67,13 @@ public class Employee {
     @Column(name = "photo_path")
     private String photoPath;
 
-
     @ManyToMany
-    @JoinTable(
-            name = "employee_territories",
+    @JoinTable(name = "employee_territories",
             joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "territory_id")
-    )
-    private Set<Territories> territories = new LinkedHashSet<>();
+            inverseJoinColumns = @JoinColumn(name = "territory_id"))
+    private Set<Territory> territories = new LinkedHashSet<>();
+
     @OneToMany(mappedBy = "managedBy")
     private Set<Order> orders = new LinkedHashSet<>();
+
 }

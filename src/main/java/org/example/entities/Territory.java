@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Territories {
+public class Territory {
 
     @Id
     @Column(name = "territory_id")

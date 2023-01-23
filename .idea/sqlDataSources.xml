@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="552ddf8d-6984-41d8-aa47-5e33d959c4d7" name="northwind@localhost Mapping">
+      <data-sources db="3bdab7e0-13ed-4ae1-99bf-67e35b78abd3" ddl="08fc5cbc-9597-4c5d-8788-465412ef4f78" />
+    </mapping>
+  </component>
+</project>

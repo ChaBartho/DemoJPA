@@ -14,17 +14,13 @@ public class Demographics {
 
     @Id
     @Column(name = "customer_type_id")
-    private long id;
+    private String id;
 
     @Column(name = "customer_desc")
     private String desc;
 
-
-
-    //L'entité faible possède la mappedBy
-    @ManyToMany(mappedBy = "types")
+    @ManyToMany(mappedBy = "types")//L'entité faible possède la mappedBy
     private List<Customer> customers;
 
-
-
 }
+

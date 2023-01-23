@@ -10,6 +10,8 @@ import java.io.Serializable;
 public class OrderDetailID implements Serializable {
 
     private static final long serialVersionID = 1L;
+
     private long orderId;
     private long productId;
+
 }

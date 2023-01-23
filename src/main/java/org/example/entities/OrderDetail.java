@@ -18,17 +18,17 @@ public class OrderDetail {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @MapsId("orderId")  // = nom de la var à l'intérieur de l'ID qui fait référence à cette colonne
+    @MapsId("orderId")
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_id")  // = nom de la var à l'intérieur de l'ID qui fait référence à cette colonne
     private Order order;
-
-
 
     @Column(name = "unit_price")
     private double unitPrice;
+
     @Column(name = "quantity")
     private int qtt;
-    @Column(name = "discount")
+
     private double discount;
+
 }

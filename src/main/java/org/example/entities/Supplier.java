@@ -13,11 +13,11 @@ import java.util.List;
 public class Supplier {
 
     @Id
-    @Column(name ="supplier_id")
+    @Column(name = "supplier_id")
     private long id;
 
     @Column(name = "company_name")
-    private String company;
+    private String companyName;
 
     @Column(name = "contact_name")
     private String contactName;
@@ -36,15 +36,12 @@ public class Supplier {
 
     private String country;
 
-    private String phone;
-
     private String fax;
+
+    private String phone;
 
     private String homepage;
 
-
     @OneToMany(mappedBy = "supplier")
     private List<Product> products;
-
-    //toMany = list  - toOne = un seul élément
 }

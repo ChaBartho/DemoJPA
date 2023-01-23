@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.Hibernate;
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -15,6 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
+
     @Id
     @Column(name = "product_id")
     private long id;
@@ -29,15 +32,12 @@ public class Product {
     private int stock;
 
     @Column(name = "units_on_order")
-    private int onOrder;
+    private Integer onOrder;
 
     @Column(name = "reorder_level")
     private int reorderLevel;
 
     private int discontinued;
-
-
-
 
     @ManyToOne
     @JoinColumn(name = "supplier_id")
@@ -46,8 +46,20 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
 
-
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
