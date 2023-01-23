@@ -20,7 +20,9 @@ public class Demographics {
     private String desc;
 
 
-    @ManyToMany(mappedBy = "types")  //L'entité faible possède la mappedBy
+
+    //L'entité faible possède la mappedBy
+    @ManyToMany(mappedBy = "types")
     private List<Customer> customers;
 
 

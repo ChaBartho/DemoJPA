@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "customers")
 @Getter
@@ -17,12 +21,29 @@ public class Customer{
     @Column(name = "customer_id")
     private long id;
 
+    @Column(name = "company_name")
+    private String company;
 
+    @Column(name = "contact_name")
+    private String contactName;
 
+    @Column(name = "contact_title")
+    private String contactTitle;
 
+    private String address;
 
+    private String city;
 
+    private String region;
 
+    @Column(name = "postal_code")
+    private String postalCode;
+
+    private String country;
+
+    private String phone;
+
+    private String fax;
 
 
 
@@ -34,5 +55,6 @@ public class Customer{
     )
     private List<Demographics> types;
 
-    //toMany = list  - toOne = un seul élément
+    @OneToMany(mappedBy = "managedBy")
+    private Set<Order> orders = new LinkedHashSet<>();
 }

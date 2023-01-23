@@ -16,13 +16,31 @@ public class Supplier {
     @Column(name ="supplier_id")
     private long id;
 
+    @Column(name = "company_name")
+    private String company;
+
+    @Column(name = "contact_name")
+    private String contactName;
+
+    @Column(name = "contact_title")
+    private String contactTitle;
+
+    private String address;
+
+    private String city;
+
+    private String region;
+
+    @Column(name = "postal_code")
+    private String postalCode;
+
+    private String country;
+
+    private String phone;
+
+    private String fax;
+
     private String homepage;
-
-
-
-
-
-
 
 
     @OneToMany(mappedBy = "supplier")

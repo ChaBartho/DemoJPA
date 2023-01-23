@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -24,23 +27,32 @@ public class Order {
     private LocalDate requiredDate;
     @Column(name = "shipped_date")
     private LocalDate shippedDate;
-    @Column(name = "ship_via")
-    private int shipVia;
-    private int freight;
+    @ManyToOne
+    @JoinColumn(name = "ship_via")
+    private Shipper shipVia;
+    @Column(name = "freight")
+    private float freight;
     @Column(name = "ship_name")
-    private String name;
-    //...
+    private String shipName;
+    @Column(name = "ship_address")
+    private String shipAddress;
+    @Column(name = "ship_city")
+    private String shipCity;
+    @Column(name = "ship_region")
+    private String shipRegion;
+    @Column(name = "ship_postal_code")
+    private String shipPostalCode;
+    @Column(name = "ship_country")
+    private String shipCountry;
 
 
-
-
-
-
-    @ManyToMany
-    @JoinColumn(name = "product_id")
-    private List<Product> products;
+    @OneToMany(mappedBy = "order")
+    private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
 
     @ManyToOne
-    @JoinColumn(name = "supplier_id")
-    private Supplier suppliers;
+    @JoinColumn(name = "employee_id")
+    private Employee managedBy;
+
+
+
 }

@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -37,14 +39,15 @@ public class Product {
 
 
 
-
     @ManyToOne
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
-    @ManyToMany
-    @JoinColumn(name = "order_id")
-    private List<Order> orders;
+    @OneToMany(mappedBy = "product")
+    private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
 
-    //toMany = list  - toOne = un seul élément
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
