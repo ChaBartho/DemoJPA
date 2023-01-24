@@ -13,7 +13,7 @@
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:6969/northwind"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="pass"/>
+            <property name="jakarta.persistence.jdbc.password" value="-dEba9-5Gm-"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             
             <property name="hibernate.show_sql" value="true"/>

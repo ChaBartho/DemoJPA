@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.Hibernate;
-
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -24,6 +22,9 @@ public class Product {
 
     @Column(name = "product_name")
     private String name;
+
+    @Column(name ="unit_price")
+    private Double unitPrice;
 
     @Column(name = "quantity_per_unit")
     private String qttPerUnit;
